@@ -1,0 +1,20 @@
+--- a/components/lvgl__lvgl/src/font/lv_font_fmt_txt.c
++++ b/components/lvgl__lvgl/src/font/lv_font_fmt_txt.c
+@@ -449,7 +449,7 @@
+     uint32_t byte_pos = bit_pos >> 3;
+     bit_pos = bit_pos & 0x7;
+ 
+-    if(bit_pos + len >= 8) {
++    if(bit_pos + len > 8) {
+         uint16_t in16 = (in[byte_pos] << 8) + in[byte_pos + 1];
+         return (in16 >> (16 - bit_pos - len)) & bit_mask;
+     }
+@@ -503,7 +503,7 @@
+     bit_pos = 8 - bit_pos - len;
+ 
+     uint8_t bit_mask = (uint16_t)((uint16_t) 1 << len) - 1;
+-    out[byte_pos] &= ((~bit_mask) << bit_pos);
++    out[byte_pos] &= (uint8_t)~((uint16_t)bit_mask << bit_pos);
+     out[byte_pos] |= (val << bit_pos);
+ }
+ 

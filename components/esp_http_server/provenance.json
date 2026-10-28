@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "sdk_version": "5.5.3",
+  "upstream_component": "ESP-IDF/components/esp_http_server",
+  "upstream_files": {
+    "CMakeLists.txt": "66514682919ea5e250c8f0268729bbcd5b1eb3706ff19b9d1062e000303434a7",
+    "Kconfig": "bf2cd79af11750e885e9b75649441a4dff324c83f7fe74c4c5572133a41039a6",
+    "include/esp_http_server.h": "6b918622792941b21aa7eaaa778b637ce18ff88407df63cd21312d8e2b4ad94c",
+    "src/esp_httpd_priv.h": "ec81edd831a29175467053f6b242526c19a62ac0fe1a2157f51307df09236f74",
+    "src/httpd_main.c": "55fccf1ec01265dd9be45609c4d8eeb5d9f80da99fee23b2309a6b372c56e24f",
+    "src/httpd_parse.c": "db7fbbb322bccb4a21bc1607208a6bb7d1f4c0d7ecc3299de10c9e60edaa943b",
+    "src/httpd_sess.c": "7b15704f9a1894506033566e50f84d4e4c9852be242b380f56548b14f8478016",
+    "src/httpd_txrx.c": "f0978034ae0acc7e5f5c52fcb4aabc424afd403d433a417e04ff70319a7dd140",
+    "src/httpd_uri.c": "e0a2077ae85145ff00811102791f6cbc6f6f290c7697decaa0c10e15f40e80ed",
+    "src/httpd_ws.c": "a02194bc8adb1a1707f680390f30ccfab95cd83230cbe4aedcadda2999c9649c",
+    "src/port/esp32/osal.h": "6542e23ced43209460d32449b265b364daebb6fd9edb88b812bc1fc956de8702",
+    "src/util/ctrl_sock.c": "0b7168d549e8bb407f4730fdeb1fc1c95f2685b04bafd41bca258667380cb52f",
+    "src/util/ctrl_sock.h": "4234cef11ecca85b7537dc06b8928884f57c4c4f5f808ced50cf078e4b42d840"
+  },
+  "upstream_license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "local_files": {
+    "CMakeLists.txt": "f21a631ffe4f9fe59448ce17dc4c265a877879c00d33f5d24396244a0c382298",
+    "Kconfig": "bf2cd79af11750e885e9b75649441a4dff324c83f7fe74c4c5572133a41039a6",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "include/esp_http_server.h": "6b918622792941b21aa7eaaa778b637ce18ff88407df63cd21312d8e2b4ad94c",
+    "src/esp_httpd_priv.h": "ec81edd831a29175467053f6b242526c19a62ac0fe1a2157f51307df09236f74",
+    "src/httpd_main.c": "78b1203c4e65ed643ebb5c2f27a753836d016243da9be7f354905615eeaf1648",
+    "src/httpd_parse.c": "db7fbbb322bccb4a21bc1607208a6bb7d1f4c0d7ecc3299de10c9e60edaa943b",
+    "src/httpd_sess.c": "7b15704f9a1894506033566e50f84d4e4c9852be242b380f56548b14f8478016",
+    "src/httpd_txrx.c": "f0978034ae0acc7e5f5c52fcb4aabc424afd403d433a417e04ff70319a7dd140",
+    "src/httpd_uri.c": "ba699729f06d08eeafad1fa33e301f2a51c38e83fe39e6dbdea27ea22b23c89c",
+    "src/httpd_ws.c": "a02194bc8adb1a1707f680390f30ccfab95cd83230cbe4aedcadda2999c9649c",
+    "src/port/esp32/osal.h": "6542e23ced43209460d32449b265b364daebb6fd9edb88b812bc1fc956de8702",
+    "src/util/ctrl_sock.c": "0b7168d549e8bb407f4730fdeb1fc1c95f2685b04bafd41bca258667380cb52f",
+    "src/util/ctrl_sock.h": "4234cef11ecca85b7537dc06b8928884f57c4c4f5f808ced50cf078e4b42d840"
+  },
+  "patched_files": [
+    "CMakeLists.txt",
+    "src/httpd_main.c",
+    "src/httpd_uri.c"
+  ],
+  "patch_sha256": "0223fbe86bd45e2623f4df6c0fed160c2b0bbaae3ed291b22d3b09fe7b9e8077",
+  "uri_candidate_sha256": "ba699729f06d08eeafad1fa33e301f2a51c38e83fe39e6dbdea27ea22b23c89c",
+  "changes": [
+    "Clear URI slot after failed URI/subprotocol strdup frees its handler. WS is disabled in current config.",
+    "Release server count semaphore on server-init failure; close server sockets and semaphore on server-task creation failure. Success and normal-stop paths unchanged.",
+    "Compile-time SDK 5.5.3 version guard; all other component code and Kconfig/private ABI copied exactly.",
+    "Compact owner-only HWM hook at HTTPD entry, rate-limited server-loop return and after all four cleanup calls, before THREAD_STOPPED/self-delete; no idle select change, handle registration, task or allocation. Strong app linkage remains a target-build gate."
+  ],
+  "resource_policy": "Local HTTPD patches add no allocation/task/queue/buffer. Complete selected-version build must verify exact local component route; whole firmware dynamic memory is reviewed separately.",
+  "global_sdk_modified": false,
+  "project_relative_patch_path": "docs/httpd-local-changes.patch",
+  "baseline_provenance_sha256": "8061f46e156dc91f0722af8e056b344efa494bf5aceb8c85a4a7547964c177f5",
+  "stack_observation_candidate": {
+    "registry_nominal_static_bytes": 36,
+    "per_boot_kind_minimum": true,
+    "not_active_or_whole_system_stack": true,
+    "weak_hook": "gauge_httpd_stack_record_self",
+    "target_strong_link_not_yet_verified": true,
+    "no_global_sdk_edit": true
+  }
+}

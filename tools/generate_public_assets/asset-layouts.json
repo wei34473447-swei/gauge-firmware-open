@@ -1,0 +1,81 @@
+{
+  "phase1_assets.c": [
+    {
+      "symbol": "phase1_brand_top",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "symbol": "phase1_brand_x",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "symbol": "phase1_digi_bg",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "symbol": "phase1_digi_ring",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "symbol": "phase1_radar_bg",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "symbol": "phase1_agumon_0",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "symbol": "phase1_agumon_1",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "symbol": "phase1_greymon_0",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "symbol": "phase1_greymon_1",
+      "width": 72,
+      "height": 72
+    }
+  ],
+  "preview5_assets.c": [
+    {
+      "symbol": "preview5_brand_wordmark",
+      "width": 158,
+      "height": 48
+    },
+    {
+      "symbol": "preview5_douyin_logo",
+      "width": 103,
+      "height": 48
+    },
+    {
+      "symbol": "preview5_douyin_qr",
+      "width": 222,
+      "height": 222
+    },
+    {
+      "symbol": "preview5_x",
+      "width": 192,
+      "height": 183
+    },
+    {
+      "symbol": "preview5_xiaohongshu_logo",
+      "width": 144,
+      "height": 68
+    },
+    {
+      "symbol": "preview5_xiaohongshu_qr",
+      "width": 222,
+      "height": 222
+    }
+  ]
+}
